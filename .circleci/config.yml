@@ -1,0 +1,1627 @@
+version: 2.1
+
+jobs:
+  Close-PacketId:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: To free memory quarantine the secrets
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; for x in owl panda seal shark cat; do echo "<$x>"; done; true ; } > /tmp/south/txt
+            echo "gate Build_Image6: $(wc -c </tmp/south/txt) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'txt'
+  Build_Image6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/txt
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  main_loop:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Collapse plus swipe
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; [ -d /tmp ] && echo 'true' || echo false; true ; } > /tmp/south/rev-5003
+            echo "gate refactor-2367: $(wc -c </tmp/south/rev-5003) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'rev-5003'
+  refactor-2367:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/rev-5003
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  translateAll:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Audit the tax report q2
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; df -hT | tr -s ' ' | fold -w 45; true ; } > /tmp/south/57.249
+            echo "gate run-quick-artifact-bundle: $(wc -c </tmp/south/57.249) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - '57.249'
+  run-quick-artifact-bundle:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/57.249
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  voice_enemy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: ask about the certificates
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; for p in blue orange pink; do printf '%s\n' "${p}"; done | head --lines=3; true ; } > /tmp/south/2022-10-01T23-49
+            echo "gate cook-it: $(wc -c </tmp/south/2022-10-01T23-49) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - '2022-10-01T23-49'
+  cook-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/2022-10-01T23-49
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  OQ:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Finance upstream measurement
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; find /usr/lib -name 'lib*' -atime +30 -exec echo {} ';' 2>/dev/null | xargs ls -ld; true ; } > /tmp/south/Wzr
+            echo "gate go1-21-ship: $(wc -c </tmp/south/Wzr) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'Wzr'
+  go1-21-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/Wzr
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  IQK-33992a:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fully promote the referral bonuses
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; mkdir -p '/tmp/array-0712'/binder && rm -rf '/tmp/array-0712' && echo removed; true ; } > /tmp/south/eastAgentSweep
+            echo "gate tweak-oauth: $(wc -c </tmp/south/eastAgentSweep) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'eastAgentSweep'
+  tweak-oauth:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/eastAgentSweep
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  PUBLIC_CELL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Web Owned Fuzzing
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; locale -a | sort -r | tr a-z A-Z | sort -u; true ; } > /tmp/south/7D
+            echo "gate VerifyApp: $(wc -c </tmp/south/7D) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - '7D'
+  VerifyApp:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/Market
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  gCzmZ:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: dev side badging
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; printf 'host=localhost\nport=1315\nuser=ivy\ndebug=true\n' >"/tmp/tra1-tmp.tsv" && sed -n "s/^user=//p" "/tmp/tra1-tmp.tsv"; true ; } > /tmp/south/iter_468
+            echo "gate WEB-153: $(wc -c </tmp/south/iter_468) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'iter_468'
+  WEB-153:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/iter_468
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  ID-PCT-TRL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: kill l10n
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; find /opt -name '*' 2>/dev/null | cat -n; true ; } > /tmp/south/Ka33enTeQlF8InmSOeLT
+            echo "gate publish: $(wc -c </tmp/south/Ka33enTeQlF8InmSOeLT) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'Ka33enTeQlF8InmSOeLT'
+  publish:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/Market
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  normalize_fork:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Split during the demo
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; find /var/log -maxdepth 2 -mindepth 1 -type f -exec wc -c {} + 2> /dev/null | wc -l; true ; } > /tmp/south/wave-glacier-packet-kernel
+            echo "gate v9-nightly: $(wc -c </tmp/south/wave-glacier-packet-kernel) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'wave-glacier-packet-kernel'
+  v9-nightly:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/Market
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  task-button-finish:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Mobile Trim Step
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; check() { printf "%-${2:-20}s|\n" "$1"; }; check top; true ; } > /tmp/south/7af3c63980d
+            echo "gate q3-canary: $(wc -c </tmp/south/7af3c63980d) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - '7af3c63980d'
+  q3-canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/7af3c63980d
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  reduce_proxy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: e572 double check chaos scenarios
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; sed 's|.*/||' /etc/shells | sort | uniq -c | sort -rn | tac; true ; } > /tmp/south/mapper.maple.chrome.river
+            echo "gate APP-440: $(wc -c </tmp/south/mapper.maple.chrome.river) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'mapper.maple.chrome.river'
+  APP-440:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/mapper.maple.chrome.river
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  version2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Sync with Yusuf
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; command -V bash; true ; } > /tmp/south/xx_7ae490a
+            echo "gate LaunchStaging: $(wc -c </tmp/south/xx_7ae490a) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'xx_7ae490a'
+  LaunchStaging:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/xx_7ae490a
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  acvN9ZHQpSzd:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Bake the water bath for 30 minutes
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; type -a sed; true ; } > /tmp/south/ee32-3110_Layer
+            echo "gate tweak-router-reload: $(wc -c </tmp/south/ee32-3110_Layer) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'ee32-3110_Layer'
+  tweak-router-reload:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/Market
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  proxyFn:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Please record the calibration beads
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; grep -Rc PATH /etc/profile.d | nl | head -8; true ; } > /tmp/south/1293_8094
+            echo "gate validate-nightly-release-candidate: $(wc -c </tmp/south/1293_8094) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - '1293_8094'
+  validate-nightly-release-candidate:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/Market
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  retro_status:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Moving on poll the QA lead
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; echo -n "cache cleared" | cat -A; true ; } > /tmp/south/GAMMA_NODE_FILTER
+            echo "gate Build_Pipeline4: $(wc -c </tmp/south/GAMMA_NODE_FILTER) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'GAMMA_NODE_FILTER'
+  Build_Pipeline4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/GAMMA_NODE_FILTER
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  PRISM_54741:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Chase up the commissions
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; \grep 'nameserver' /etc/resolv.conf | head -n 8; true ; } > /tmp/south/RJEn
+            echo "gate defualt-85: $(wc -c </tmp/south/RJEn) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'RJEn'
+  defualt-85:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/RJEn
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  comment_collect_disable:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Phase VIII
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; cp /etc/hosts /tmp/bundle.dat &&cmp /etc/hosts /tmp/bundle.dat &&echo same; true ; } > /tmp/south/socketdeltamapletensor
+            echo "gate realease-13: $(wc -c </tmp/south/socketdeltamapletensor) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'socketdeltamapletensor'
+  realease-13:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/socketdeltamapletensor
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  TAX_EXTERNAL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: cold start ALL the battery level
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; printf 'host=db1\nport=1302\nuser=mia\ndebug=true\n' >/tmp/melon-cookie1.csv && (. /tmp/melon-cookie1.csv && echo "$host:$port"); true ; } > /tmp/south/zeta_teal
+            echo "gate sirius-plus: $(wc -c </tmp/south/zeta_teal) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'zeta_teal'
+  sirius-plus:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/zeta_teal
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  ichMap:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: signOffOnAllRoyaltyStatements
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; shuf -i 1-127 -n 8|awk 'NR==1 || $1<min {min=$1} END {print min}'; true ; } > /tmp/south/RtkAoam65vAjA2mvIx
+            echo "gate bug-5262: $(wc -c </tmp/south/RtkAoam65vAjA2mvIx) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'RtkAoam65vAjA2mvIx'
+  bug-5262:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/RtkAoam65vAjA2mvIx
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  union_opt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Cost centers audited ok
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; tar -zcf "/tmp/teammeeting-v3.tar.gz" -C ~ .bashrc && tar -tzf "/tmp/teammeeting-v3.tar.gz"; true ; } > /tmp/south/170.149.209
+            echo "gate v8-beta: $(wc -c </tmp/south/170.149.209) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - '170.149.209'
+  v8-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/170.149.209
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  cnt-index-icon:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: gotta stage the hazmat shelf
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; find /usr/lib -type f -name "*.conf" -exec stat -c "%y %n" {} + 2>/dev/null | sed 's|.*/||' | sort -u; true ; } > /tmp/south/IMG-7731
+            echo "gate bun-build: $(wc -c </tmp/south/IMG-7731) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'IMG-7731'
+  bun-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/Market
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  uat-dev-63:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: SEED ENEMY WAVES MANUAL
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; exec 3>'/tmp/job_tracking_ocean_2021.01.27.conf'; echo hello >&3; exec 3>&-; cat '/tmp/job_tracking_ocean_2021.01.27.conf'; true ; } > /tmp/south/inVoIcedELtaMeAdOwBAckUp
+            echo "gate xray-4: $(wc -c </tmp/south/inVoIcedELtaMeAdOwBAckUp) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'inVoIcedELtaMeAdOwBAckUp'
+  xray-4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/inVoIcedELtaMeAdOwBAckUp
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  panel_ptrs:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: SplitStaleSnapshots5
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; echo "50/50"; echo OK; true ; } > /tmp/south/MVI-26570
+            echo "gate verify-end-to-end-regression-suite: $(wc -c </tmp/south/MVI-26570) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'MVI-26570'
+  verify-end-to-end-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/MVI-26570
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  MeshHeight:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Refund the cash forecast period 5
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; for elem in wednesday friday thursday saturday tuesday; do echo $elem; done | wc -l; true ; } > /tmp/south/beta.payload.chunk
+            echo "gate Package_Image5: $(wc -c </tmp/south/beta.payload.chunk) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'beta.payload.chunk'
+  Package_Image5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/beta.payload.chunk
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  open_tax_indigo_zip_line:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: scale out WIP
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; echo 'mission accomplished' >/tmp/package_reply.out; wc -c /tmp/package_reply.out; true ; } > /tmp/south/Market
+            echo "gate preview-build: $(wc -c </tmp/south/Market) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'Market'
+  preview-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/Market
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  oyd6:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Run the test shards ahead of tests
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; grep -v '^#' /etc/shells | awk -F/ '{print NF-1}' | tail -n 3; true ; } > /tmp/south/ysi
+            echo "gate ruby3-build: $(wc -c </tmp/south/ysi) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'ysi'
+  ruby3-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/ysi
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  espressoPiston:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: MaskGoldTableStep
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; echo -n 'status: ok'; echo; true ; } > /tmp/south/USP
+            echo "gate fix-session-redirect: $(wc -c </tmp/south/USP) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'USP'
+  fix-session-redirect:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/Market
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  weeshsoungx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Cut over the staging cluster if needed
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'v0.9-beta' | xargs; true ; } > /tmp/south/c4ny0n_b0s0n_14g00n
+            echo "gate intergration: $(wc -c </tmp/south/c4ny0n_b0s0n_14g00n) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'c4ny0n_b0s0n_14g00n'
+  intergration:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/c4ny0n_b0s0n_14g00n
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+  entry_2786_detach:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Stream the sidecar to region b
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; echo 50 17 47 69 62 71 | tr ' ' '\n' | awk '{printf "%05d\n", $1}' | head --lines=6; true ; } > /tmp/south/scarletshaderslicepayload
+            echo "gate auh-check: $(wc -c </tmp/south/scarletshaderslicepayload) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'scarletshaderslicepayload'
+  auh-check:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Fetch D
+          command: |
+            cat /tmp/south/scarletshaderslicepayload
+      - run:
+          name: Get project
+          command: git clone --depth 2 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: tar -xjf final-sources.tar.bz2
+      - run:
+          command: $PWD/rollback-adapter
+
+  sierra_alfa:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Agar looks ok
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; paste -s -d+ <(seq 9); true ; } > /tmp/south/GAMMA_NODE_FILTER
+            echo "gate Build_Pipeline4: $(wc -c </tmp/south/GAMMA_NODE_FILTER) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'GAMMA_NODE_FILTER'
+  RATE_SECRET:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Via cron shred the screenshot folder
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; awk -F: '{ print $1, $7 }' /etc/passwd | rev | tr -cs '[:alnum:]' '\n'; true ; } > /tmp/south/RJEn
+            echo "gate defualt-85: $(wc -c </tmp/south/RJEn) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'RJEn'
+  u-dark:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Email in parallel
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; for thing in sunday saturday tuesday; do echo ${thing^^}; done|tac; true ; } > /tmp/south/txt
+            echo "gate Build_Image6: $(wc -c </tmp/south/txt) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'txt'
+  popOptionAnchorWrapper:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: bake ragdolls later
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; lines='   leading spaces'; declare -p lines; true ; } > /tmp/south/170.149.209
+            echo "gate v8-beta: $(wc -c </tmp/south/170.149.209) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - '170.149.209'
+  zone-length:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Tag the postmortem carefully
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; dd if=/dev/zero of="/var/tmp/crimson.list" bs=1M count=11 status=none && ls -l "/var/tmp/crimson.list"; true ; } > /tmp/south/beta.payload.chunk
+            echo "gate Package_Image5: $(wc -c </tmp/south/beta.payload.chunk) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'beta.payload.chunk'
+  start_or_default:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Definitely cut over the worker pool
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; compgen -b | grep -x printf; true ; } > /tmp/south/MVI-26570
+            echo "gate verify-end-to-end-regression-suite: $(wc -c </tmp/south/MVI-26570) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'MVI-26570'
+  drouthnongex:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Denver signing
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; echo 'alright then' | awk '{gsub(/ /, "_"); print}'; true ; } > /tmp/south/inVoIcedELtaMeAdOwBAckUp
+            echo "gate xray-4: $(wc -c </tmp/south/inVoIcedELtaMeAdOwBAckUp) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'inVoIcedELtaMeAdOwBAckUp'
+  switch-badge--large:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Focus the share sheet and type
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; cat /etc/hosts|awk '{ print $2 }'|pr -3 -t; true ; } > /tmp/south/7af3c63980d
+            echo "gate q3-canary: $(wc -c </tmp/south/7af3c63980d) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - '7af3c63980d'
+  thulbilslinta:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Texturing By Web Team
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; printf 'x\n' | tee "/tmp/recipe-alpha-tomato.dat" >/dev/null; cat "/tmp/recipe-alpha-tomato.dat"; true ; } > /tmp/south/mapper.maple.chrome.river
+            echo "gate APP-440: $(wc -c </tmp/south/mapper.maple.chrome.river) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'mapper.maple.chrome.river'
+  virtualPtr:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Produce
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; cat /dev/null >"/tmp/scratch.agreement.raven.out" && ls -s "/tmp/scratch.agreement.raven.out"; true ; } > /tmp/south/2022-10-01T23-49
+            echo "gate cook-it: $(wc -c </tmp/south/2022-10-01T23-49) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - '2022-10-01T23-49'
+  camera-otherGet:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Straight after survey the interns
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; echo done; echo 'time for coffee'; true ; } > /tmp/south/socketdeltamapletensor
+            echo "gate realease-13: $(wc -c </tmp/south/socketdeltamapletensor) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'socketdeltamapletensor'
+  proj-alfa:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: rewrite tutorial series attempt 9
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; ls -1 /etc/default | tail -10 | fmt -w 54; true ; } > /tmp/south/iter_468
+            echo "gate WEB-153: $(wc -c </tmp/south/iter_468) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'iter_468'
+  z_min:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Aliquot the cell lines carefully
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; cat /etc/group | grep "audio" | cut -d: -f1; true ; } > /tmp/south/c4ny0n_b0s0n_14g00n
+            echo "gate intergration: $(wc -c </tmp/south/c4ny0n_b0s0n_14g00n) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'c4ny0n_b0s0n_14g00n'
+  article_spawn_next:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Scan during the deadline
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; { echo 'pack my box with five dozen liquor jugs'; echo done; } | sort; true ; } > /tmp/south/57.249
+            echo "gate run-quick-artifact-bundle: $(wc -c </tmp/south/57.249) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - '57.249'
+  dwPixelRate:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Greenlight proxy
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; ls -FiSQt $HOME /mnt | head -n 5; true ; } > /tmp/south/Wzr
+            echo "gate go1-21-ship: $(wc -c </tmp/south/Wzr) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'Wzr'
+  szPulse:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: quick fix
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; cat /etc/issue | tr -s ' ' | sort -u | tr -d '[:digit:]'; true ; } > /tmp/south/eastAgentSweep
+            echo "gate tweak-oauth: $(wc -c </tmp/south/eastAgentSweep) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'eastAgentSweep'
+  phone_pulse_script:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Tokenize the drift monitor epoch 22
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; df -hT | tr -s ' ' | expand -t 7 | tac; true ; } > /tmp/south/scarletshaderslicepayload
+            echo "gate auh-check: $(wc -c </tmp/south/scarletshaderslicepayload) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'scarletshaderslicepayload'
+  cloak792:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: 4k Source Mux Step
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; cp /etc/passwd /tmp/quote3.conf && sed -i.orig 's/:x:/:*:/' /tmp/quote3.conf && cat /tmp/quote3.conf; true ; } > /tmp/south/RtkAoam65vAjA2mvIx
+            echo "gate bug-5262: $(wc -c </tmp/south/RtkAoam65vAjA2mvIx) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'RtkAoam65vAjA2mvIx'
+  teardownTraitGradient:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: validateChaosScenariosTask
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; grep -r case /etc/profile.d | wc -l; true ; } > /tmp/south/zeta_teal
+            echo "gate sirius-plus: $(wc -c </tmp/south/zeta_teal) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'zeta_teal'
+  bindPort:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/south
+      - run:
+          name: Give the login button 60 seconds
+          command: |
+            mkdir -p /tmp/south
+            { set +o pipefail 2>/dev/null; echo $PATH | tr : '\n' | pr -3 -t | tail -n 10; true ; } > /tmp/south/ysi
+            echo "gate ruby3-build: $(wc -c </tmp/south/ysi) bytes total"
+      - persist_to_workspace:
+          root: /tmp/south
+          paths:
+            - 'ysi'
+workflows:
+  test:
+    jobs:
+      - open_tax_indigo_zip_line
+      - acvN9ZHQpSzd
+      - preview-build:
+          requires:
+            - open_tax_indigo_zip_line
+            - acvN9ZHQpSzd
+      - tweak-router-reload:
+          requires:
+            - open_tax_indigo_zip_line
+            - acvN9ZHQpSzd
+      - v9-nightly:
+          requires:
+            - open_tax_indigo_zip_line
+            - acvN9ZHQpSzd
+      - publish:
+          requires:
+            - open_tax_indigo_zip_line
+            - acvN9ZHQpSzd
+      - VerifyApp:
+          requires:
+            - open_tax_indigo_zip_line
+            - acvN9ZHQpSzd
+      - validate-nightly-release-candidate:
+          requires:
+            - open_tax_indigo_zip_line
+            - acvN9ZHQpSzd
+      - bun-build:
+          requires:
+            - open_tax_indigo_zip_line
+            - acvN9ZHQpSzd
+      - fix-session-redirect:
+          requires:
+            - open_tax_indigo_zip_line
+            - acvN9ZHQpSzd
+      - retro_status
+      - sierra_alfa:
+          requires:
+            - retro_status
+      - Build_Pipeline4:
+          requires:
+            - sierra_alfa
+      - PRISM_54741:
+          requires:
+            - sierra_alfa
+      - RATE_SECRET:
+          requires:
+            - PRISM_54741
+      - defualt-85:
+          requires:
+            - RATE_SECRET
+      - Close-PacketId:
+          requires:
+            - RATE_SECRET
+      - u-dark:
+          requires:
+            - Close-PacketId
+      - Build_Image6:
+          requires:
+            - u-dark
+      - union_opt
+      - popOptionAnchorWrapper:
+          requires:
+            - union_opt
+      - v8-beta:
+          requires:
+            - popOptionAnchorWrapper
+      - MeshHeight:
+          requires:
+            - popOptionAnchorWrapper
+      - zone-length:
+          requires:
+            - MeshHeight
+      - Package_Image5:
+          requires:
+            - zone-length
+      - panel_ptrs:
+          requires:
+            - zone-length
+      - start_or_default:
+          requires:
+            - panel_ptrs
+      - verify-end-to-end-regression-suite:
+          requires:
+            - start_or_default
+      - uat-dev-63:
+          requires:
+            - start_or_default
+      - drouthnongex:
+          requires:
+            - uat-dev-63
+      - xray-4:
+          requires:
+            - drouthnongex
+      - task-button-finish:
+          requires:
+            - drouthnongex
+      - switch-badge--large:
+          requires:
+            - task-button-finish
+      - q3-canary:
+          requires:
+            - switch-badge--large
+      - version2
+      - LaunchStaging:
+          requires:
+            - version2
+      - main_loop:
+          requires:
+            - version2
+      - refactor-2367:
+          requires:
+            - main_loop
+      - reduce_proxy
+      - thulbilslinta:
+          requires:
+            - reduce_proxy
+      - APP-440:
+          requires:
+            - thulbilslinta
+      - voice_enemy:
+          requires:
+            - thulbilslinta
+      - virtualPtr:
+          requires:
+            - voice_enemy
+      - cook-it:
+          requires:
+            - virtualPtr
+      - comment_collect_disable:
+          requires:
+            - virtualPtr
+      - camera-otherGet:
+          requires:
+            - comment_collect_disable
+      - realease-13:
+          requires:
+            - camera-otherGet
+      - gCzmZ:
+          requires:
+            - camera-otherGet
+      - proj-alfa:
+          requires:
+            - gCzmZ
+      - WEB-153:
+          requires:
+            - proj-alfa
+      - weeshsoungx:
+          requires:
+            - proj-alfa
+      - z_min:
+          requires:
+            - weeshsoungx
+      - intergration:
+          requires:
+            - z_min
+      - translateAll:
+          requires:
+            - z_min
+      - article_spawn_next:
+          requires:
+            - translateAll
+      - run-quick-artifact-bundle:
+          requires:
+            - article_spawn_next
+      - OQ
+      - dwPixelRate:
+          requires:
+            - OQ
+      - go1-21-ship:
+          requires:
+            - dwPixelRate
+      - IQK-33992a:
+          requires:
+            - dwPixelRate
+      - szPulse:
+          requires:
+            - IQK-33992a
+      - tweak-oauth:
+          requires:
+            - szPulse
+      - entry_2786_detach:
+          requires:
+            - szPulse
+      - phone_pulse_script:
+          requires:
+            - entry_2786_detach
+      - auh-check:
+          requires:
+            - phone_pulse_script
+      - ichMap:
+          requires:
+            - phone_pulse_script
+      - cloak792:
+          requires:
+            - ichMap
+      - bug-5262:
+          requires:
+            - cloak792
+      - TAX_EXTERNAL:
+          requires:
+            - cloak792
+      - teardownTraitGradient:
+          requires:
+            - TAX_EXTERNAL
+      - sirius-plus:
+          requires:
+            - teardownTraitGradient
+      - oyd6:
+          requires:
+            - teardownTraitGradient
+      - bindPort:
+          requires:
+            - oyd6
+      - ruby3-build:
+          requires:
+            - bindPort
